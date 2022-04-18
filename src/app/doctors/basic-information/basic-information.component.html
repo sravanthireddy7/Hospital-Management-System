@@ -1,0 +1,114 @@
+<div style="width: 95%">
+  <form [formGroup]="doctorInfo" (ngSubmit)="saveDoctorsData()">
+    <div class="row">
+      <div class="col-6 form-group">
+        <label>Select Department</label><sup class="text-danger">*</sup>
+        <select class="form-control" formControlName="deptId">
+          <option value="">Please Select</option>
+          <ng-container *ngFor="let item of departments">
+            <option [value]="item.name">
+              {{ item.name }}
+            </option>
+          </ng-container>
+        </select>
+        <label
+          class="text-danger"
+          *ngIf="
+            !doctorInfo.controls['deptId'].valid &&
+            doctorInfo.controls['name'].touched &&
+            isFormSubmitted
+          "
+          >Select Department</label
+        >
+      </div>
+      <div class="col-6">
+        <label>Name</label><sup class="text-danger">*</sup>
+        <input class="form-control" type="text" formControlName="name" />
+        <label
+          class="text-danger"
+          *ngIf="
+            !doctorInfo.controls['name'].valid &&
+            doctorInfo.controls['name'].touched &&
+            isFormSubmitted
+          "
+        >
+          <span *ngIf="doctorInfo.controls['name'].getError('required')"
+            >Name is Required</span
+          >
+          <span *ngIf="doctorInfo.controls['name'].getError('minlength')"
+            >Minimum length should be 5 characters</span
+          >
+          <span *ngIf="doctorInfo.controls['name'].getError('maxlength')"
+            >Maximum length is 15 characters only</span
+          >
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 form-group">
+        <label>Email</label><sup class="text-danger">*</sup>
+        <input class="form-control" type="email" formControlName="email" />
+        <label
+          class="text-danger"
+          *ngIf="
+            !doctorInfo.controls['email'].valid &&
+            doctorInfo.controls['email'].touched &&
+            isFormSubmitted
+          "
+        >
+          <span *ngIf="doctorInfo.controls['email'].getError('required')">
+            Email is Required</span
+          >
+          <span *ngIf="doctorInfo.controls['email'].getError('email')"
+            >Enter valid Email</span
+          >
+        </label>
+      </div>
+      <div class="col-6">
+        <label>Password</label><sup class="text-danger">*</sup>
+        <input
+          class="form-control"
+          type="password"
+          formControlName="password"
+        />
+        <label
+          class="text-danger"
+          *ngIf="
+            !doctorInfo.controls['password'].valid &&
+            doctorInfo.controls['password'].touched &&
+            isFormSubmitted
+          "
+          ><span>Password is required</span>
+          <span *ngIf="doctorInfo.controls['password'].getError('minlength')"
+            >Minimum 5 characters required</span
+          >
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <label>Services</label><sup class="text-danger">*</sup>
+        <textarea
+          rows="5"
+          class="form-control"
+          formControlName="services"
+        ></textarea>
+        <input
+          style="float: right"
+          type="button"
+          class="btn btn-primary mt-1"
+          [value]="doctorInfo.controls['services'].value.length + '/100'"
+        />
+      </div>
+    </div>
+
+    <div style="float: left">
+      <input
+        type="submit"
+        value="{{ btnText }}"
+        class="btn btn-success mt-3 float-right"
+        [disabled]="!doctorInfo.valid"
+      />
+    </div>
+  </form>
+</div>

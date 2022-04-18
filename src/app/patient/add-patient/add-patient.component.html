@@ -1,0 +1,22 @@
+<form [formGroup]="patientInfo" (ngSubmit)="saveData()">
+  <div class="form-group">
+    Name<input type="text" class="form-control" formControlName="name" />
+  </div>
+  <div class="form-group">
+    Male<input
+      type="radio"
+      value="Male"
+      name="gender"
+      formControlName="gender"
+    />
+    Female<input
+      type="radio"
+      value="Female"
+      name="gender"
+      formControlName="gender"
+    />
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </div>
+</form>

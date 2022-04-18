@@ -1,0 +1,83 @@
+<div>
+  <div style="float: right; margin-right: 10px" class="">
+    <input
+      type="button"
+      value="Back to Department"
+      class="btn btn-primary"
+      routerLink="/department"
+    />
+  </div>
+  <div style="clear: right"></div>
+  <div class="mt-3">
+    <div
+      style="align-items: center; text-align: center; font-weight: bold"
+      class="text-danger"
+      *ngIf="!isValid"
+    >
+      * marked fields are manadatory fields to fill
+    </div>
+    <div class="form-group m-2">
+      <label
+        >Name<sup class="font-weight-bold" [ngClass]="requiredClass"
+          >*</sup
+        ></label
+      >
+      <input
+        type="text"
+        value=""
+        class="form-control"
+        placeholder="Enter Name.."
+        [(ngModel)]="department.name"
+      />
+      <div class="text-danger" *ngIf="isNameValid">Enter Valid Name</div>
+    </div>
+    <div class="form-group m-2">
+      <label
+        >Emergency Number<sup class="font-weight-bold" [ngClass]="requiredClass"
+          >*</sup
+        >
+      </label>
+      <input
+        type="number"
+        value=""
+        class="form-control"
+        placeholder="Enter Number"
+        [(ngModel)]="department.emergencyNo"
+      />
+
+      <div class="text-danger" *ngIf="isEmergencyNoValid">
+        Enter Valid Emergency Number
+      </div>
+    </div>
+    <div class="form-group m-2">
+      <label
+        >Description<sup class="font-weight-bold" [ngClass]="requiredClass"
+          >*</sup
+        ></label
+      >
+      <textarea
+        value=""
+        class="form-control"
+        placeholder="Enter Description"
+        [(ngModel)]="department.description"
+      ></textarea>
+
+      <div class="text-danger" *ngIf="isDescriptionValid">
+        Enter Valid Description
+      </div>
+    </div>
+    <div class="d-flex mt-5">
+      <div class="col-3">
+        <input
+          type="button"
+          [value]="addUpdateBtn"
+          class="btn btn-primary"
+          (click)="saveDepartment()"
+        />
+      </div>
+      <div *ngIf="showMessage" class="col-7 btn btn-success">
+        {{successMsg}}
+      </div>
+    </div>
+  </div>
+</div>

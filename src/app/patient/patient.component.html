@@ -1,0 +1,27 @@
+<div>
+  <input
+    type="button"
+    class="btn btn-link"
+    value="Add Patient"
+    routerLink="/add-patient"
+  />
+
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of patientInfo">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.gender }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "name": "Patient1",
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "name": "Patient2",
+      "gender": "Female"
+    },
+    {
+      "id": 3,
+      "name": "patien3",
+      "gender": "Male"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

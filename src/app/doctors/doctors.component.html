@@ -1,0 +1,45 @@
+<input
+  type="button"
+  value="Add Doctor"
+  class="btn btn-primary"
+  routerLink="/add-doctor"
+/>
+
+<div class="mt-5 row">
+  <div class="col-11">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Department Name</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of doctorsInfo">
+          <td>{{ item.id }}</td>
+          <td>{{ item.deptId }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.email }}</td>
+
+          <td>
+            <input
+              type="button"
+              value="Edit"
+              class="btn btn-primary"
+              (click)="editDoctor(item.id)"
+            />
+            <input
+              style="margin-left: 10px"
+              type="button"
+              value="Delete"
+              class="btn btn-danger"
+              (click)="deleteDoctor(item.id)"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
